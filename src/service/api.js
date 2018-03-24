@@ -2,7 +2,7 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 import store from 'store';
 const API = axios.create({
-  baseURL: 'http://192.168.1.102:8080/api',
+  baseURL: 'http://101.132.43.78:8080/api',
   withCredentials: true
 });
 
