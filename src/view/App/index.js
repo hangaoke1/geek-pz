@@ -89,7 +89,7 @@ class App extends React.Component {
               </Menu.Item>
               <Menu.Item key="/studentsCenter">
                 <Link to="/studentsCenter">
-                  <Icon type="user" />
+                  <Icon type="usergroup-add" />
                   <span>学生管理中心</span>
                 </Link>
               </Menu.Item>
@@ -119,7 +119,7 @@ class App extends React.Component {
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
-              学工管理系统 ©2018 Created by hangaoke
+              学工管理系统 ©2018 Created by yang
             </Footer>
           </Layout>
         </Layout>

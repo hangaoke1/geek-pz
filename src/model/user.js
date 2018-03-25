@@ -71,10 +71,14 @@ function* loginSaga(action) {
     });
     browserHistory.push('/dashboard');
   } else {
-    message.error(userInfo.message);
+    if (userInfo.error) {
+      message.error(`登陆失败`);
+    } else {
+      message.error(userInfo.message);
+    }
     yield put({
       type: LOGIN_ERROR,
-      data:null
+      data: null
     });
   }
 }
@@ -163,7 +167,7 @@ export const userSaga = function* () {
 };
 
 export const userReducer = user;
- 
+
 export const userAction = {
   login: loginAction,
   logout: logoutAction,
