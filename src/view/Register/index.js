@@ -13,6 +13,9 @@ class NormalLoginForm extends React.Component {
       registered: false
     };
   }
+  goLogin = (e) => {
+    this.props.router.push('/login');
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -37,7 +40,7 @@ class NormalLoginForm extends React.Component {
     if (!this.state.registered) {
       render = (<Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
-          <img src={ imgLogo }  alt="" /> 
+          <img src={ imgLogo }  alt="" />
         </FormItem>
         <FormItem>
           {getFieldDecorator('loginName', {
@@ -60,7 +63,7 @@ class NormalLoginForm extends React.Component {
         </FormItem>
       </Form>);
     } else {
-      render = (<Button>立即登陆</Button>);
+      render = (<Button onClick={ this.goLogin } className="go-login" type="primary" size="large">立即登陆</Button>);
     }
     return (
       <div className="register">

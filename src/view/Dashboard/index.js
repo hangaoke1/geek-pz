@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './index.less';
+import imgLogo from '../../asset/login/bg.jpg';
 class Dashboard extends Component {
   render() {
     return (
       <div className="Dashboard">
-        主页
+        <img src={ imgLogo } alt=""/>
       </div>
     );
   }

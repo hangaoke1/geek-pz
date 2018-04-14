@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Spin, Button, message } from 'antd';
 import API from '@service/api';
 import UserModal from './form';
+import './index.less';
 class Dashboard extends Component {
   state = {
     visible: false,
@@ -45,9 +46,10 @@ class Dashboard extends Component {
     }
     return (
       <div className="User">
+        <h2 class="title">个人信息</h2>
         { user }
         <br />
-        <Button onClick={this.showModal}>密码修改</Button>
+        <Button onClick={this.showModal} type="primary">密码修改</Button>
         <UserModal
           wrappedComponentRef={this.saveFormRef}
           visible={this.state.visible}
