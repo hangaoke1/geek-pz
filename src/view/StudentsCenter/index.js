@@ -4,6 +4,7 @@ import { Table, Button, Divider, Modal, message } from 'antd';
 import { connect } from 'react-redux';
 import StudentModal from './createFrom';
 import './index.less';
+import config from '../../config.js'
 
 const confirm = Modal.confirm;
 
@@ -105,7 +106,6 @@ class StudentsCenter extends React.Component {
   }
   goStudent = (student, e) => {
     let stuId = student.stuId;
-    console.log(stuId);
     this.props.router.push(`/studentDetail/${stuId}`);
   }
   getStudents = (pageNo, pageSize) => {
@@ -181,6 +181,9 @@ class StudentsCenter extends React.Component {
     this.setState({
       upDateVisible: true,
     });
+  }
+  exportExcel = () => {
+    window.open(`${config.JavaService}/api/exportExcel`)
   }
   handleUpdateCreate = (student) => {
     const form = this.updateFormRef.props.form;
@@ -270,7 +273,10 @@ class StudentsCenter extends React.Component {
     };
     return (
       <div className="studentsCenter">
-        <p><Button type="primary" onClick={this.showModal}>添加学生</Button></p>
+        <p className="btn-wrap">
+          <Button type="primary" onClick={this.showModal}>添加学生</Button>
+          <Button type="danger" onClick={this.exportExcel}>导出excel</Button>
+        </p>
         <Table
           rowKey="stuId"
           loading={loading}
